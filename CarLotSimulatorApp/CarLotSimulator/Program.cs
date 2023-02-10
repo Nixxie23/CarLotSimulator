@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace CarLotSimulator
 {
@@ -6,6 +7,47 @@ namespace CarLotSimulator
     {
         static void Main(string[] args)
         {
+            var firstCarLot = new CarLot();
+            var coolCar = new Car();
+            coolCar.Make = "Chevrolet";
+            coolCar.Model = "Impala";
+            coolCar.Year = 1967;
+            coolCar.IsDriveable = true;
+            coolCar.EngineNoise = "vrrrROOOOOmmmmm";
+            coolCar.HonkNoise = "hooooooooonk";
+
+            firstCarLot.CarList = new List<Car>();
+            firstCarLot.CarList.Add(coolCar);
+            
+            
+            var mysteryMachine = new Car() { IsDriveable = true, EngineNoise = "rumblerumble", HonkNoise = "BEEP BEEP", Make = "Ford", Model = "Econoline", Year = 1978 };
+
+            firstCarLot.CarList.Add(mysteryMachine);
+            
+            var tardis = new Car()
+            {
+                IsDriveable = true,
+                EngineNoise = "reEEEeee, reEEEEeee, reeEEEEeee,",
+                HonkNoise = "SCREECH",
+                Make = "Time Lords Auto",
+                Model = "Blue Police Box",
+                Year = 0
+
+            };
+            firstCarLot.CarList.Add(tardis);
+
+            coolCar.MakeEngineNoise(coolCar.EngineNoise);
+            mysteryMachine.MakeEngineNoise(tardis.EngineNoise);
+            tardis.MakeEngineNoise(mysteryMachine.EngineNoise);
+            coolCar.MakeHonkNoise(coolCar.HonkNoise);
+            mysteryMachine.MakeHonkNoise(mysteryMachine.HonkNoise);
+            tardis.MakeHonkNoise(tardis.HonkNoise);
+
+            foreach (var car in firstCarLot.CarList)
+            {
+                Console.WriteLine($"{car.Make} {car.Model} {car.Year}.");
+            }
+
             //TODO
 
             //Create a seperate class file called Car
