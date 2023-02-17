@@ -15,13 +15,17 @@ namespace CarLotSimulator
             coolCar.IsDriveable = true;
             coolCar.EngineNoise = "vrrrROOOOOmmmmm";
             coolCar.HonkNoise = "hooooooooonk";
-
+            
+            Console.WriteLine($"Number of cars on the lot: {Car.CarsCreated}");
+            
             firstCarLot.CarList = new List<Car>();
             firstCarLot.CarList.Add(coolCar);
             
             
             var mysteryMachine = new Car() { IsDriveable = true, EngineNoise = "rumblerumble", HonkNoise = "BEEP BEEP", Make = "Ford", Model = "Econoline", Year = 1978 };
-
+            
+            Console.WriteLine($"Number of cars on the lot: {Car.CarsCreated}");
+            
             firstCarLot.CarList.Add(mysteryMachine);
             
             var tardis = new Car()
@@ -34,6 +38,9 @@ namespace CarLotSimulator
                 Year = 0
 
             };
+
+            Console.WriteLine($"Number of cars on the lot: {Car.CarsCreated}");
+
             firstCarLot.CarList.Add(tardis);
 
             coolCar.MakeEngineNoise(coolCar.EngineNoise);
